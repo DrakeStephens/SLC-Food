@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Nav() {
  return(
-    <header className="navbar navbar-expand-lg navbar-light"> 
+    <header className="navbar navbar-expand-lg navbar-light border-bottom"> 
             <nav>
                 <Link to="/" >
                     <img 
@@ -15,11 +15,11 @@ function Nav() {
                 </Link>
         
         
-                <Link to="/">
-                    <button className="btn btn-warning nav-item m-1">Example</button>
+                <Link to="/login">
+                    <button className="btn btn-warning nav-item m-1">Login</button>
                 </Link>
-                <Link to="/">
-                    <button className="btn btn-warning nav-item m-1">Example</button>
+                <Link to="/signup">
+                    <button className="btn btn-warning nav-item m-1">Signup</button>
                 </Link>
                 <Link to="/">
                     <button className="btn btn-warning nav-item m-1">Example</button>
