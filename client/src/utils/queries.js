@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export const QUERY_RESTURAUNTS = gql`
-  query resturaunts($username: String) {
-    resturaunts(username: $username) {
+  query resturaunts($firstName: String) {
+    resturaunts(firstName: $firstName) {
       _id
       username
       resturauntName

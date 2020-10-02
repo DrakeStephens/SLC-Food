@@ -12,11 +12,11 @@ function Signup(props) {
     event.preventDefault();
     const mutationResponse = await addUser({
       variables: {
-        email: formState.email, password: formState.password,
-        firstName: formState.firstName, lastName: formState.lastName
+        username: formState.username,  
+        email: formState.email, password: formState.password
       }
     });
-    debugger
+    console.log(error)
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
   };
@@ -37,7 +37,7 @@ function Signup(props) {
 
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
-        <div className="form-group">
+        {/* <div className="form-group">
           <label htmlFor="firstName">First Name:</label>
           <input
             className="form-control"
@@ -47,15 +47,15 @@ function Signup(props) {
             id="firstName"
             onChange={handleChange}
           />
-        </div>
+        </div> */}
         <div className="form-group">
-          <label htmlFor="lastName">Last Name:</label>
+          <label htmlFor="username">Username:</label>
           <input
             className="form-control"
-            placeholder="Last"
-            name="lastName"
-            type="lastName"
-            id="lastName"
+            placeholder="username"
+            name="username"
+            type="username"
+            id="username"
             onChange={handleChange}
           />
         </div>
