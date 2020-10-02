@@ -1,10 +1,10 @@
-const { Test } = require('../models');
+const { User } = require('../models');
 const resolvers = {
   Query: {
-    Test: async () => {
-      return await Test.find();
+    users: async () => {
+      return User.find().select('-_v -password');
     }
   }
-}
+};
 
 module.exports = resolvers;
