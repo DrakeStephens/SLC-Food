@@ -1,10 +1,18 @@
-const { Test } = require('../models');
+const { User } = require('../models');
 const resolvers = {
   Query: {
-    Test: async () => {
-      return await Test.find();
+    users: async () => {
+      return User.find().select('-_v -password');
     }
+  },
+  Mutation: {
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+      const token = signToken(user);
+
+      return { token, user };
+    },
   }
-}
+};
 
 module.exports = resolvers;

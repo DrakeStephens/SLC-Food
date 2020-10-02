@@ -1,20 +1,23 @@
 const faker = require('faker');
 const db = require('../config/connection');
-const { Test } = require('../models');
+const { User } = require('../models');
 
 db.once('open', async () => {
-    await Test.deleteMany({});
+    await User.deleteMany({});
 
     // create user data
-    const testData = [];
+    const userData = [];
 
     for (let i = 0; i < 20; i++) {
-        const menu = faker.company.menu("http://www.narrabistro.com/menu.html");
+        const name = faker.name.findName();
+        const email = faker.internet.email();
+        const password = faker.internet.password();
 
 
-        testData.push({ menu });
+        userData.push({ name, email, password });
     }
-    await Test.collection.insertMany(testData);
+
+    await User.collection.insertMany(userData);
 
     console.log('all done!');
     process.exit(0);
