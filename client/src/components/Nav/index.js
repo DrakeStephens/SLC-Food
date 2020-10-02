@@ -13,8 +13,6 @@ function Nav() {
                         className="navbar-brand"
                     />
                 </Link>
-        
-        
                 <Link to="/login">
                     <button className="btn btn-warning nav-item m-1">Login</button>
                 </Link>
