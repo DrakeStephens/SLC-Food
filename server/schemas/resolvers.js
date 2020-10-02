@@ -4,6 +4,14 @@ const resolvers = {
     users: async () => {
       return User.find().select('-_v -password');
     }
+  },
+  Mutation: {
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+      const token = signToken(user);
+
+      return { token, user };
+    },
   }
 };
 
