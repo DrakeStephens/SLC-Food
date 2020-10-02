@@ -1,5 +1,5 @@
 import React from 'react';
-//import { ApolloProvider } from '@apollo/react-hooks';
+import { ApolloProvider } from '@apollo/react-hooks';
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -12,16 +12,16 @@ import Nav from "./components/Nav"
 
 
 //Apollo Client
-//import ApolloClient from 'apollo-boost';
-//const client = new ApolloClient({
-// uri: 'http://localhost:3001/graphql'
-//});
+import ApolloClient from 'apollo-boost';
+const client = new ApolloClient({
+uri: 'http://localhost:3001/graphql'
+});
 
 
 
 function App() {
   return (
-    //<ApolloProvider client={client}>
+    <ApolloProvider client={client}>
       <Router>
         <Nav />
         <Switch>
@@ -30,7 +30,7 @@ function App() {
           <Route exact path="/signup" component={Signup} />
         </Switch>
       </Router>
-    //</ApolloProvider>
+    </ApolloProvider>
   );
 }
 
