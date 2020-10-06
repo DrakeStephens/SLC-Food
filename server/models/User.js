@@ -20,7 +20,11 @@ const userSchema = new Schema({
         type: String,
         required: true,
         minlength: 5
-    }
+    },
+    resturaunts: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Resturaunt'
+    }],
 }, {
     toJSON: {
         virtuals: true

@@ -1,11 +1,14 @@
-const { User } = require('../models');
+const { User, Resturaunt } = require('../models');
 const { signToken } = require('../utils/auth');
+const { AuthenticationError } = require('apollo-server-express');
 
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().select('-_v -password');
+      return User.find()
+      .select('-_v -password')
+      .populate('resturaunts');
     },
     user: async (parent, args, context) => {
       if (context.user) {
@@ -20,6 +23,10 @@ const resolvers = {
       }
 
       throw new AuthenticationError('Not logged in');
+    },
+    resturaunts: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Resturaunt.find(params).sort({ createdAt: -1 });
     }
   },
   Mutation: {
@@ -46,7 +53,22 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    }
+    },
+    addResturaunt: async (parent, args, context) => {
+      if (context.user) {
+        const resturaunt = await Resturaunt.create({ ...args, username: context.user.username });
+    
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { resturaunts: resturaunt._id } },
+          { new: true }
+        );
+    
+        return resturaunt;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+    },
 
 
   }

@@ -32,12 +32,6 @@ export const ADD_RESTURAUNT = gql`
         resturauntName
         url
         description
-        menuItemCount
-        menuItems {
-          _id
-          description
-          price
-        }
     }
   }
 `;

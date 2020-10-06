@@ -1,19 +1,13 @@
 import gql from 'graphql-tag';
 
 export const QUERY_RESTURAUNTS = gql`
-  query resturaunts($firstName: String) {
-    resturaunts(firstName: $firstName) {
+  query resturaunts($username: String) {
+    resturaunts(username: $username) {
       _id
       username
       resturauntName
       url
       description
-      menuItemCount
-      menuItems {
-        _id
-        description
-        price
-      }
     }
   }
 `;
@@ -47,12 +41,6 @@ export const QUERY_ME = gql`
         resturauntName
         url
         description
-        menuItemCount
-        menuItems {
-          _id
-          description
-          price
-        }
       }
     }
   }
