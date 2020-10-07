@@ -1,6 +1,8 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const menuItemSchema = require('./MenuItem');
+
 const userSchema = new Schema({
   username: {
     type: String,
@@ -22,11 +24,16 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Resturaunt'
   }],
-}, {
-  toJSON: {
-    virtuals: true
-  }
-});
+
+  savedMenuItems: [menuItemSchema],
+
+},
+
+  {
+    toJSON: {
+      virtuals: true
+    }
+  });
 
 // set up pre-save middleware to create password
 userSchema.pre('save', async function (next) {
