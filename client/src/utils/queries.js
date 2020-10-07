@@ -8,12 +8,6 @@ export const QUERY_RESTURAUNTS = gql`
       resturauntName
       url
       description
-      menuItemCount
-      menuItems {
-        _id
-        description
-        price
-      }
     }
   }
 `;
@@ -47,12 +41,6 @@ export const QUERY_ME = gql`
         resturauntName
         url
         description
-        menuItemCount
-        menuItems {
-          _id
-          description
-          price
-        }
       }
     }
   }

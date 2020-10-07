@@ -1,6 +1,6 @@
 import React from 'react';
-//import { ApolloProvider } from '@apollo/react-hooks';
-
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //Pages
@@ -12,16 +12,23 @@ import Nav from "./components/Nav"
 
 
 //Apollo Client
-//import ApolloClient from 'apollo-boost';
-//const client = new ApolloClient({
-// uri: 'http://localhost:3001/graphql'
-//});
+const client = new ApolloClient({
+  request: operation => {
+    const token = localStorage.getItem('id_token')
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    })
+  },
+  uri: '/graphql',
+})
 
 
 
 function App() {
   return (
-    //<ApolloProvider client={client}>
+    <ApolloProvider client={client}>
       <Router>
         <Nav />
         <Switch>
@@ -30,7 +37,7 @@ function App() {
           <Route exact path="/signup" component={Signup} />
         </Switch>
       </Router>
-    //</ApolloProvider>
+    </ApolloProvider>
   );
 }
 
