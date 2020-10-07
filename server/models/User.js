@@ -2,6 +2,7 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const menuItemSchema = require('./MenuItem');
+const resturauntSchema = require('./Resturaunt');
 
 const userSchema = new Schema({
   username: {
@@ -26,6 +27,7 @@ const userSchema = new Schema({
   }],
 
   savedMenuItems: [menuItemSchema],
+  savedResturaunt: [resturauntSchema],
 
 },
 
