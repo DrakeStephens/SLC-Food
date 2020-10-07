@@ -1,11 +1,11 @@
 const { Schema, model } = require('mongoose');
 // const menuItemSchema = require('./MenuItem');
 
-const resturauntSchema = new Schema(
+const restaurantSchema = new Schema(
   {
-    resturauntName: {
+    restaurantName: {
       type: String,
-      required: 'You need to leave a resturaunt name!',
+      required: 'You need to leave a restaurant name!',
       minlength: 1,
       maxlength: 280
     },
@@ -28,6 +28,6 @@ const resturauntSchema = new Schema(
   }
 );
 
-const Resturaunt = model('Resturaunt', resturauntSchema);
+const Restaurant = model('Restaurant', restaurantSchema);
 
-module.exports = Resturaunt;
+module.exports = Restaurant;

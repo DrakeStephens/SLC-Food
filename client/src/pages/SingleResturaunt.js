@@ -6,17 +6,17 @@
 
 //import { useParams } from 'react-router-dom';
 //import { useQuery } from '@apollo/react-hooks';
-//import { QUERY_RESTURAUNT } from '../utils/queries';
+//import { QUERY_RESTAURANT } from '../utils/queries';
 
 
-const SingleResturaunt = props => {
-  //const { id: resturauntId } = useParams();
+const SingleRestaurant = props => {
+  //const { id: restaurantId } = useParams();
 
-// const { loading, data } = useQuery(QUERY_RESTURAUNT, {
-//   variables: { id: resturauntId }
+// const { loading, data } = useQuery(QUERY_RESTAURANT, {
+//   variables: { id: restaurantId }
 // });
 
-// const resturaunt = data?.resturaunt || {};
+// const restaurant = data?.restaurant || {};
 
 // if (loading) {
 //   return <div>Loading...</div>;
@@ -27,21 +27,21 @@ const SingleResturaunt = props => {
   <div className="card mb-3">
     {/* <p className="card-header">
       <span style={{ fontWeight: 700 }} className="text-light">
-        {resturaunt.username}
+        {restaurant.username}
       </span>{' '}
-      resturaunt added on {resturaunt.createdAt}
+      restaurant added on {restaurant.createdAt}
     </p> */}
     <div className="card-body">
-      {/* <a href={resturaunt.url}>
+      {/* <a href={restaurant.url}>
       <h4>Our Website</h4>
       </a> 
-      <p>{resturaunt.description}</p>  */}
+      <p>{restaurant.description}</p>  */}
     </div>
   </div>
-  {/* {resturaunt.menuItemCount > 0 && <menuList menuItems={resturaunt.menuItems} />}
-  {Auth.loggedIn() && <MenuForm resturauntId={resturaunt._id} />} */}
+  {/* {restaurant.menuItemCount > 0 && <menuList menuItems={restaurant.menuItems} />}
+  {Auth.loggedIn() && <MenuForm restaurantId={restaurant._id} />} */}
 </div>
   );
 };
 
-export default SingleResturaunt;
+export default SingleRestaurant;
