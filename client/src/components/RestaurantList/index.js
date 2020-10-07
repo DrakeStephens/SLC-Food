@@ -23,8 +23,8 @@ const RestaurantList = ({ restaurants, title }) => {
             <div className="card-body">          
               <h4>Restuarant Website</h4>
               <a
-                href={resturaunt.url}
-              >{resturaunt.url}
+                href={restaurant.url}
+              >{restaurant.url}
               </a>
               <h4>Restuarant Description</h4>
               <p>{restaurant.url}</p>

@@ -9,7 +9,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { QUERY_RESTURAUNT } from '../utils/queries';
 
 
-const SingleResturaunt = props => {
+const SingleRestaurant = props => {
   const { id: rid } = useParams();
 
   const { loading, data } = useQuery(QUERY_RESTURAUNT, {
