@@ -2,6 +2,7 @@
   "name": "slc-food",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -11,6 +12,7 @@
     "bootstrap": "^4.5.2",
     "graphql": "^15.3.0",
     "graphql-tag": "^2.11.0",
+    "jwt-decode": "^3.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",

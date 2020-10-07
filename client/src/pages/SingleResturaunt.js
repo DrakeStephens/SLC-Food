@@ -32,13 +32,13 @@ const SingleResturaunt = props => {
       resturaunt added on {resturaunt.createdAt}
     </p> */}
     <div className="card-body">
-      {/* <a href={resturaunt.website}>
+      {/* <a href={resturaunt.url}>
       <h4>Our Website</h4>
       </a> 
       <p>{resturaunt.description}</p>  */}
     </div>
   </div>
-  {/* {resturaunt.MenuCount > 0 && <menuList menuItems={resturaunt.menuItems} />}
+  {/* {resturaunt.menuItemCount > 0 && <menuList menuItems={resturaunt.menuItems} />}
   {Auth.loggedIn() && <MenuForm resturauntId={resturaunt._id} />} */}
 </div>
   );
