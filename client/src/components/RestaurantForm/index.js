@@ -82,6 +82,7 @@ const RestaurantForm = () => {
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
         >
+        <h2>Add A Restaurant!</h2>
         <p className={`m-0 ${characterCountName === 280 || error ? 'text-error' : ''}`}>
             Character Count: {characterCountName}/280
             {error && <span className="ml-2">Something went wrong...</span>}
