@@ -21,8 +21,15 @@ const RestaurantList = ({ restaurants, title }) => {
               </Link>{' '}
             </p>
             <div className="card-body">          
+              <h4>Restuarant Website</h4>
+              <a
+                href={resturaunt.url}
+              >{resturaunt.url}
+              </a>
+              <h4>Restuarant Description</h4>
               <p>{restaurant.url}</p>
               <p>{restaurant.description}</p>
+
               {/* <p className="mb-0">
                 MenuItems: {restaurant.menuItemCount} || Click to{' '}
                 {restaurant.menuItemCount ? 'see' : 'start'} the discussion!
