@@ -24,12 +24,12 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_RESTURAUNT = gql`
-  mutation addResturaunt($resturauntName: String!, $description: String!, $url: String!) {
-    addResturaunt(resturauntName: $resturauntName, description: $description, url: $url) {
+export const ADD_RESTAURANT = gql`
+  mutation addRestaurant($restaurantName: String!, $description: String!, $url: String!) {
+    addRestaurant(restaurantName: $restaurantName, description: $description, url: $url) {
         _id
         username
-        resturauntName
+        restaurantName
         url
         description
     }
