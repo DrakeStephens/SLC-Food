@@ -1,23 +1,24 @@
 const faker = require('faker');
 const db = require('../config/connection');
-const { User } = require('../models');
+const { MenuItem } = require('../models');
 
 db.once('open', async () => {
-    await User.deleteMany({});
+    await MenuItem.deleteMany({});
 
-    // create user data
-    const userData = [];
+    // create MenuItem data
+    const menuItemData = [];
 
     for (let i = 0; i < 20; i++) {
-        const name = faker.name.findName();
-        const email = faker.internet.email();
-        const password = faker.internet.password();
+        const username = faker.name.findName();
+        const discription = faker.lorem.MenuItem();
+        const price = faker.random.finance();
 
 
-        userData.push({ name, email, password });
+
+        menuItemData.push({ username, discription, price });
     }
 
-    await User.collection.insertMany(userData);
+    await MenuItem.insertMany(menuItemData);
 
     console.log('all done!');
     process.exit(0);
