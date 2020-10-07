@@ -42,7 +42,8 @@ const SingleResturaunt = props => {
       {/* {resturaunt.menuItemCount > 0 && <menuList menuItems={resturaunt.menuItems} />}
       {Auth.loggedIn() && <MenuForm resturauntId={resturaunt._id} />} */}
     </div>
+
   );
 };
 
-export default SingleResturaunt;
+export default SingleRestaurant;

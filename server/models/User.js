@@ -21,9 +21,9 @@ const userSchema = new Schema({
         required: true,
         minlength: 5
     },
-    resturaunts: [{
+    restaurants: [{
       type: Schema.Types.ObjectId,
-      ref: 'Resturaunt'
+      ref: 'Restaurant'
     }],
 }, {
     toJSON: {
