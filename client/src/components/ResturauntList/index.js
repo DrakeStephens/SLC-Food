@@ -14,14 +14,19 @@ const ResturauntList = ({ resturaunts, title }) => {
           <div key={resturaunt._id} className=" mb-3">
             <p className="card-header bg-warning">
               <Link
-                to={`/resturaunt/${resturaunt._id}`}
+                to={`restaurant/${resturaunt._id}`}
                 style={{ fontWeight: 700, color: "black"}}
               >
                 {resturaunt.resturauntName}
               </Link>{' '}
             </p>
             <div className="card-body">          
-              <p>{resturaunt.url}</p>
+              <h4>Restuarant Website</h4>
+              <a
+                href={resturaunt.url}
+              >{resturaunt.url}
+              </a>
+              <h4>Restuarant Description</h4>
               <p>{resturaunt.description}</p>
               {/* <p className="mb-0">
                 MenuItems: {resturaunt.menuItemCount} || Click to{' '}

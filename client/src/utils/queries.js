@@ -12,6 +12,19 @@ export const QUERY_RESTURAUNTS = gql`
   }
 `;
 
+export const QUERY_RESTURAUNT = gql`
+  query resturaunt($id: ID!) {
+    resturaunt(_id: $id) {
+      _id
+      resturauntName
+      url
+      description
+      username
+    }
+  }
+`;
+
+
 
 export const QUERY_USER = gql`
   query user($username: String!) {
