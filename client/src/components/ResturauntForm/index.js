@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-//import { ADD_RESTURAUNT } from '../../utils/mutations';
-//import { QUERY_RESTURAUNTS, QUERY_ME } from '../../utils/queries';
+import { ADD_RESTURAUNT } from '../../utils/mutations';
+import { QUERY_RESTURAUNTS, QUERY_ME } from '../../utils/queries';
 
-const ThoughtForm = () => {
+const ResturauntForm = () => {
   const [resturauntName, setName] = useState('');
   const [description, setDescription] = useState('');
   const [url, setUrl] = useState('');
@@ -58,18 +58,24 @@ const ThoughtForm = () => {
     event.preventDefault();
   
     try {
-      // add thought to database
+      // add resturaunt to database
       await addResturaunt({
-        variables: { resturauntName, description }
+        variables: { resturauntName, description, url }
       });
   
       // clear form value
-      setText('');
-      setCharacterCount(0);
+      setName('');
+      setDescription('');
+      setUrl('');
+      
+      setCharacterCountName(0);
+      setCharacterCountDescription(0);
+      setCharacterCountUrl(0);
     } catch (e) {
       console.error(e);
     }
   };
+
   return (
     <div>
       <form
@@ -81,7 +87,7 @@ const ThoughtForm = () => {
             {error && <span className="ml-2">Something went wrong...</span>}
         </p>
         <textarea
-            placeholder="Enter Your Resturaunt's name..."
+            placeholder="Enter Your resturaunt's name..."
             value={resturauntName}
             className="form-input col-12 col-md-9"
             onChange={handleChangeName}
@@ -91,7 +97,7 @@ const ThoughtForm = () => {
             {error && <span className="ml-2">Something went wrong...</span>}
         </p>
         <textarea
-            placeholder="Enter a quick description of your website..."
+            placeholder="Enter a quick description of your resturaunt..."
             value={description}
             className="form-input col-12 col-md-9"
             onChange={handleChangeDescription}
@@ -101,17 +107,19 @@ const ThoughtForm = () => {
             {error && <span className="ml-2">Something went wrong...</span>}
         </p>
         <textarea
-            placeholder="Enter a quick description of your website..."
+            placeholder="Please enter your resturaunt's url (If applicable)..."
             value={url}
             className="form-input col-12 col-md-9"
             onChange={handleChangeUrl}
         ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
+        <div>
+        <button className="btn-warning btn" type="submit">
           Submit
         </button>
+        </div>
       </form>
     </div>
   );
 };
 
-export default ThoughtForm;
+export default ResturauntForm;
