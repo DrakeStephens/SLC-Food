@@ -12,11 +12,11 @@ export const QUERY_RESTAURANTS = gql`
   }
 `;
 
-export const QUERY_RESTURAUNT = gql`
-  query resturaunt($id: ID!) {
-    resturaunt(_id: $id) {
+export const QUERY_RESTAURANT = gql`
+  query restaurant($id: ID!) {
+    restaurant(_id: $id) {
       _id
-      resturauntName
+      restaurantName
       url
       description
       username

@@ -6,19 +6,19 @@ import React from 'react';
 
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-import { QUERY_RESTURAUNT } from '../utils/queries';
+import { QUERY_RESTAURANT } from '../utils/queries';
+
 
 
 const SingleRestaurant = props => {
-  const { id: rid } = useParams();
+  const { id: restaurantId } = useParams();
 
-  const { loading, data } = useQuery(QUERY_RESTURAUNT, {
-    variables: { id: rid }
-
+  const { loading, data } = useQuery(QUERY_RESTAURANT, {
+    variables: { id: restaurantId }
   });
-
-  const resturaunt = data?.resturaunt || {};
-
+  
+  const restaurant = data?.restaurant || {};
+  
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -26,21 +26,40 @@ const SingleRestaurant = props => {
   return (
     <div>
       <div className="mb-3">
-        <p className="card-header">
-          <span style={{ fontWeight: 700 }} className="text-light">
-            {resturaunt.resturauntName}
+        <h2 className="card-header">
+          <span style={{ fontWeight: 700, color: "black" }}>
+            {restaurant.restaurantName}
           </span>{' '}
-        </p>
+        </h2>
         <div className="card-body">
-          <a href={resturaunt.url}>
+          <a href={restaurant.url}>
             <h4>Our Website</h4>
           </a> 
           <h4>Restaurant Description</h4>
-          <p>{resturaunt.description}</p> 
+          <p>{restaurant.description}</p> 
         </div>
       </div>
-      {/* {resturaunt.menuItemCount > 0 && <menuList menuItems={resturaunt.menuItems} />}
-      {Auth.loggedIn() && <MenuForm resturauntId={resturaunt._id} />} */}
+      {/* {restaurant.menuItemCount > 0 && <menuList menuItems={restaurant.menuItems} />}
+      {Auth.loggedIn() && <MenuForm restaurantId={restaurant._id} />} */}
+      <div>
+        <h3 className="card-header">Our Menu</h3>
+        <div className="cardBody">
+          <ul className="list-unstyled m-5 border-bottom">
+            <li>          
+              <h4>Menu Item#1 SM</h4>
+              <p>this is what is on menu item #1</p>
+              <h5>$5.50(this is the price of menu item #1)</h5>
+              <button type="radio" className="btn btn-warning mb-2">Add to cart</button>
+            </li>
+            <li>          
+              <h4>Menu Item#1 M</h4>
+              <p>this is what is on menu item #1</p>
+              <h5>$6.50(this is the price of menu item #1)</h5>
+              <button type="radio" className="btn btn-warning mb-2">Add to cart</button>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 
   );

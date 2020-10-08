@@ -24,6 +24,9 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
+    restaurant: async (parent, { _id }) => {
+      return Restaurant.findOne({ _id });
+    },
     restaurants: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Restaurant.find(params).sort({ createdAt: -1 });
