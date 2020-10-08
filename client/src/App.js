@@ -9,6 +9,7 @@ import Login from "./pages/Login"
 import Signup from './pages/Signup';
 //Components
 import Nav from "./components/Nav"
+import SingleRestaurant from './pages/SingleRestaurant';
 
 
 //Apollo Client
@@ -35,6 +36,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/restaurant/:id" component={SingleRestaurant} />
         </Switch>
       </Router>
     </ApolloProvider>

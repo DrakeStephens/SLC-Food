@@ -21,21 +21,15 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  resturaunts: [{
+  restaurants: [{
     type: Schema.Types.ObjectId,
-    ref: 'Resturaunt'
+    ref: 'Restaurant'
   }],
-
-  savedMenuItems: [menuItemSchema],
-
-
-},
-
-  {
-    toJSON: {
-      virtuals: true
-    }
-  });
+}, {
+  toJSON: {
+    virtuals: true
+  }
+});
 
 // set up pre-save middleware to create password
 userSchema.pre('save', async function (next) {

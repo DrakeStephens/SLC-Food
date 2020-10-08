@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { ADD_RESTURAUNT } from '../../utils/mutations';
-import { QUERY_RESTURAUNTS, QUERY_ME } from '../../utils/queries';
+import { ADD_RESTAURANT } from '../../utils/mutations';
+import { QUERY_RESTAURANTS, QUERY_ME } from '../../utils/queries';
 
-const ResturauntForm = () => {
-  const [resturauntName, setName] = useState('');
+const RestaurantForm = () => {
+  const [restaurantName, setName] = useState('');
   const [description, setDescription] = useState('');
   const [url, setUrl] = useState('');
   
@@ -12,14 +12,14 @@ const ResturauntForm = () => {
   const [characterCountDescription, setCharacterCountDescription] = useState(0);
   const [characterCountUrl, setCharacterCountUrl] = useState(0);
   
-  const [addResturaunt, { error }] = useMutation(ADD_RESTURAUNT, {
-    update(cache, { data: { addResturaunt } }) {
+  const [addRestaurant, { error }] = useMutation(ADD_RESTAURANT, {
+    update(cache, { data: { addRestaurant } }) {
       try {
         
-        const { resturaunts } = cache.readQuery({ query: QUERY_RESTURAUNTS });
+        const { restaurants } = cache.readQuery({ query: QUERY_RESTAURANTS });
         cache.writeQuery({
-          query: QUERY_RESTURAUNTS,
-          data: { resturaunts: [addResturaunt, ...resturaunts] }
+          query: QUERY_RESTAURANTS,
+          data: { restaurants: [addRestaurant, ...restaurants] }
         });
       } catch (e) {
         console.error(e);
@@ -28,7 +28,7 @@ const ResturauntForm = () => {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, resturaunts: [...me.resturaunts, addResturaunt] } }
+        data: { me: { ...me, restaurants: [...me.restaurants, addRestaurant] } }
       });
     }
   });
@@ -58,9 +58,9 @@ const ResturauntForm = () => {
     event.preventDefault();
   
     try {
-      // add resturaunt to database
-      await addResturaunt({
-        variables: { resturauntName, description, url }
+      // add restaurant to database
+      await addRestaurant({
+        variables: { restaurantName, description, url }
       });
   
       // clear form value
@@ -82,13 +82,14 @@ const ResturauntForm = () => {
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
         >
+        <h2>Add A Restaurant!</h2>
         <p className={`m-0 ${characterCountName === 280 || error ? 'text-error' : ''}`}>
             Character Count: {characterCountName}/280
             {error && <span className="ml-2">Something went wrong...</span>}
         </p>
         <textarea
-            placeholder="Enter Your resturaunt's name..."
-            value={resturauntName}
+            placeholder="Enter Your restaurant's name..."
+            value={restaurantName}
             className="form-input col-12 col-md-9"
             onChange={handleChangeName}
         ></textarea>
@@ -97,7 +98,7 @@ const ResturauntForm = () => {
             {error && <span className="ml-2">Something went wrong...</span>}
         </p>
         <textarea
-            placeholder="Enter a quick description of your resturaunt..."
+            placeholder="Enter a quick description of your restaurant..."
             value={description}
             className="form-input col-12 col-md-9"
             onChange={handleChangeDescription}
@@ -107,7 +108,7 @@ const ResturauntForm = () => {
             {error && <span className="ml-2">Something went wrong...</span>}
         </p>
         <textarea
-            placeholder="Please enter your resturaunt's url (If applicable)..."
+            placeholder="Please enter your restaurant's url (If applicable)..."
             value={url}
             className="form-input col-12 col-md-9"
             onChange={handleChangeUrl}
@@ -122,4 +123,4 @@ const ResturauntForm = () => {
   );
 };
 
-export default ResturauntForm;
+export default RestaurantForm;
