@@ -1,4 +1,4 @@
-# SLC-Food 
+# SLC-Food (./client/public/images/slc-food.png)
 [![Contributors][contributors-shield]][contributors-url]
 [![MIT License][license-shield]][license-url]
 
