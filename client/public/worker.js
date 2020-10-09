@@ -1,7 +1,7 @@
 
 var CACHE_NAME = 'pwa-slc-food';
 var urlsToCache = [
-    '/index.html'
+    '/'
 ];
 
 // Install a service worker

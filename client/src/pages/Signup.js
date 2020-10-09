@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-//import { useMutation } from '@apollo/react-hooks';
-//import Auth from "../utils/auth";
-//import { ADD_USER } from "../utils/mutations";
+import { useMutation } from '@apollo/react-hooks';
+import Auth from "../utils/auth";
+import { ADD_USER } from "../utils/mutations";
 
 function Signup(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });
-  //const [addUser] = useMutation(ADD_USER);
+  const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleFormSubmit = async event => {
     event.preventDefault();
-    // const mutationResponse = await addUser({
-    //   variables: {
-    //     email: formState.email, password: formState.password,
-    //     firstName: formState.firstName, lastName: formState.lastName
-    //   }
-    // });
-    // const token = mutationResponse.data.addUser.token;
-    // Auth.login(token);
+    const mutationResponse = await addUser({
+      variables: {
+        username: formState.username,  
+        email: formState.email, password: formState.password
+      }
+    });
+    console.log(error)
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
   };
 
   const handleChange = event => {
@@ -37,24 +38,13 @@ function Signup(props) {
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="form-group">
-          <label htmlFor="firstName">First Name:</label>
+          <label htmlFor="username">Username:</label>
           <input
             className="form-control"
-            placeholder="First"
-            name="firstName"
-            type="firstName"
-            id="firstName"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            className="form-control"
-            placeholder="Last"
-            name="lastName"
-            type="lastName"
-            id="lastName"
+            placeholder="username"
+            name="username"
+            type="username"
+            id="username"
             onChange={handleChange}
           />
         </div>
@@ -86,6 +76,7 @@ function Signup(props) {
           </button>
         </div>
       </form>
+      {error && <div>Sign up failed</div>}
     </div>
   );
 

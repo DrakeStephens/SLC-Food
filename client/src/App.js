@@ -1,6 +1,6 @@
 import React from 'react';
-//import { ApolloProvider } from '@apollo/react-hooks';
-
+import { ApolloProvider } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-boost';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //Pages
@@ -9,28 +9,37 @@ import Login from "./pages/Login"
 import Signup from './pages/Signup';
 //Components
 import Nav from "./components/Nav"
+import SingleRestaurant from './pages/SingleRestaurant';
 
 
 //Apollo Client
-//import ApolloClient from 'apollo-boost';
-//const client = new ApolloClient({
-// uri: 'http://localhost:3001/graphql'
-//});
+const client = new ApolloClient({
+  request: operation => {
+    const token = localStorage.getItem('id_token')
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    })
+  },
+  uri: '/graphql',
+})
 
 
 
 function App() {
   return (
-    //<ApolloProvider client={client}>
+    <ApolloProvider client={client}>
       <Router>
         <Nav />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/restaurant/:id" component={SingleRestaurant} />
         </Switch>
       </Router>
-    //</ApolloProvider>
+    </ApolloProvider>
   );
 }
 
