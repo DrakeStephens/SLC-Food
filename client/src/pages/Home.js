@@ -3,7 +3,6 @@ import { useQuery } from '@apollo/react-hooks';
 import { QUERY_RESTAURANTS } from '../utils/queries'
 import RestaurantList from '../components/RestaurantList';
 import Auth from '../utils/auth';
-import RestaurantForm from '../components/RestaurantForm';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_RESTAURANTS);  
@@ -12,13 +11,7 @@ const Home = () => {
   const loggedIn = Auth.loggedIn();
   return (
     <main>
-      <div className="flex-row justify-space-between">
-        {loggedIn && (
-          <div className="col-12 mb-3">
-            <RestaurantForm />
-          </div>
-        )}
-        
+      <div className="flex-row justify-space-between">        
         <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
           {loading ? (
             <div>Loading...</div>

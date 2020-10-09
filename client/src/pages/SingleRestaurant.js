@@ -1,8 +1,8 @@
-// import Auth from '../utils/auth';
+import Auth from '../utils/auth';
 import React from 'react';
 
 // import MenuList from '../components/MenuList';
-// import MenuForm from '../components/MenuForm';
+import MenuForm from '../components/MenuForm';
 
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
@@ -23,6 +23,7 @@ const SingleRestaurant = props => {
     return <div>Loading...</div>;
   }
 
+
   return (
     <div>
       <div className="mb-3">
@@ -41,6 +42,7 @@ const SingleRestaurant = props => {
       </div>
       {/* {restaurant.menuItemCount > 0 && <menuList menuItems={restaurant.menuItems} />}
       {Auth.loggedIn() && <MenuForm restaurantId={restaurant._id} />} */}
+      {Auth.loggedIn() && <MenuForm restaurantId={restaurant._id} />}
       <div>
         <h3 className="card-header">Our Menu</h3>
         <div className="cardBody">

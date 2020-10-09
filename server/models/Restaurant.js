@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-// const menuItemSchema = require('./MenuItem');
+const menuItemSchema = require('./MenuItem');
 
 const restaurantSchema = new Schema(
   {
@@ -24,7 +24,7 @@ const restaurantSchema = new Schema(
       type: String,
       required: true
     },
-    // menuItems: [menuItemSchema]
+    menuItems: [menuItemSchema]
   }
 );
 

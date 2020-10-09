@@ -2,6 +2,11 @@ const { Schema } = require('mongoose');
 
 const menuItemSchema = new Schema(
   {
+    item: {
+      type: String,
+      required: true,
+      maxlength: 280
+    },
     description: {
       type: String,
       required: true,

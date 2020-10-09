@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Signup from './pages/Signup';
+import AddRestaurant from './pages/AddResturuant'
 //Components
 import Nav from "./components/Nav"
 import SingleRestaurant from './pages/SingleRestaurant';
@@ -37,6 +38,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/restaurant/:id" component={SingleRestaurant} />
+          <Route exact path="/AddRestaurant" component={AddRestaurant} />
         </Switch>
       </Router>
     </ApolloProvider>

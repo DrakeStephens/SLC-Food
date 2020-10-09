@@ -72,7 +72,19 @@ const resolvers = {
     
       throw new AuthenticationError('You need to be logged in!');
     },
-
+    addMenu: async (parent, { restaurantId, item, description, price }, context) => {
+      if (context.user) {
+        const updatedRestaurant = await Restaurant.findOneAndUpdate(
+          { _id: restaurantId },
+          { $push: { menuItems: { item, description, price, username: context.user.username } } },
+          { new: true, runValidators: true }
+        );
+    
+        return updatedRestaurant;
+      }
+    
+      throw new AuthenticationError('You need to be logged in!');
+    },
 
   }
 };
