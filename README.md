@@ -1,8 +1,7 @@
-# SLC-Food (./client/public/images/slc-food.png)
-[![Contributors][contributors-shield]][contributors-url]
-[![MIT License][license-shield]][license-url]
+# SLC-Food 
+(./client/public/images/slc-food.png)
 
-SLC-Food is an easy to use, restaurant finder application focused on finding local restaurants in Salt Lake City. Users are able to use the application to submit online orders without fees and charges of other larger remote ordering analogs.
+**SLC-Food** is an ***easy-to-use***, Restaurant Finder application focused on finding local restaurants in Salt Lake City. Users are able to use the application to ***make online orders*** without *fees* and *charges* that other larger remote ordering analogs do.
 
 ## Table of Contents (Optional)
 
@@ -43,7 +42,6 @@ Distributed under the [MIT](https://choosealicense.com/licenses/mit/) license.
 ## Badges
 awesome
 
-
 ## Contributing
 Any contributions or suggestions to make our application better is always welcome. 
 
@@ -60,7 +58,7 @@ Please read the [contribution guidelines](contributing.md) first.
 
 [Chubbray](https://github.com/Chubbray)
 
-[Mario Dubon](https://github.com/mdubon1407)
+[MDubon1407](https://github.com/mdubon1407)
 
 [CRSPN](https://github.com/CRSPN)
 
