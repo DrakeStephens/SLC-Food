@@ -1,38 +1,38 @@
-# SLC-Food
+# SLC-Food 
+APM badge
 
-# SLC-Food
-
-## Description 
-
-A full stack web application, focused on creating a new platform for local Salt Lake City local restaurants to recive online orders without the fees and charges of larger remote ordering analogs.
+SLC-Food is an easy to use, restaurant finder application focused on finding local restaurants in Salt Lake City. Users are able to use the application to submit online orders without fees and charges of other larger remote ordering analogs.
 
 ## Table of Contents (Optional)
-
-If your README is very long, add a table of contents to make it easy for users to find what they need.
 
 * [Installation](#installation)
 * [Usage](#usage)
 * [Credits](#credits)
 * [License](#license)
+* [Contributing](#contributing)
 
 
 ## Installation
 
-NPM packages, 
+To install NPM dependencies: 
+
+`npm install`
+
+To start the application:
+
+`npm start`
 
 ## Usage 
 
-to veiw the menu and (ideally) order food from local buisnesses in the greater Salt Lake area.
+to view the menu and (ideally) order food from local businesses in the greater Salt Lake area.
 
 
 ## Credits
 
 
-
-
 ## License
 
-MIT
+[MIT](https://choosealicense.com/licenses/mit/)
  
 
 ## Badges
@@ -41,9 +41,17 @@ awesome
 
 
 ## Contributing
+Any contributions or suggestions to make our application better is always welcome. 
 
+Please read the [contribution guidelines](contributing.md) first.
 
+### Contributors
+[Drake Stevens](https://github.com/DrakeStephens)
 
-## Tests
+[Chubbray](https://github.com/Chubbray)
 
-umm
+[Mario Dubon](https://github.com/mdubon1407)
+
+[CRSPN](https://github.com/CRSPN)
+
+[Matthew McFadden](https://github.com/MatthewMcFadden)
