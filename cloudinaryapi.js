@@ -1,3 +1,4 @@
+// HTML
 <CloudinaryContext cloudName="dyfsfpiol">
   <div>
     <Image publicId="sample" width="50" />
@@ -5,7 +6,7 @@
   <Image publicId="sample" width="0.5" />
 </CloudinaryContext>
 
-// SDK Setup
+// // SDK Setup
 // API key: 664547614164934 - - - Mandatory for server-side operations. Used together with the API secret to communicate with the Cloudinary API and sign requests.
 // N3t0IUGXvWq-UqXPQPPxauHt-iw - - - Mandatory for server-side operations. Used together with the API key to communicate with the Cloudinary API and sign requests.
 
