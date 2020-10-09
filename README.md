@@ -1,4 +1,3 @@
-# SLC-Food 
 ![logo](client/public/images/slc-food.png)
 
 **SLC-Food** is an ***easy-to-use***, Restaurant Finder application focused on finding local restaurants in Salt Lake City. Users are able to use the application to ***make online orders*** without *fees* or *charges* that other larger remote ordering analogs do.
