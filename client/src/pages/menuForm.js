@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
+import { useParams } from 'react-router-dom';
 
-import { ADD_MENU_ITEM } from '../../utils/mutations';
+import { ADD_MENU_ITEM } from '../utils/mutations'
 
-const MenuForm = ({ restaurantId }) => {
+const MenuForm = () => {
+const { id: restaurantId } = useParams();
 const [item, setMenuItem] = useState('');
 const [description, setMenuDescription] = useState('');
 const [price, setMenuPrice] = useState('');
@@ -56,7 +58,7 @@ const handleFormSubmit = async event => {
   };
 
   return (
-    <div>
+    <div className="col-12 mb-3 col-lg-8">
         <form
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
@@ -91,13 +93,14 @@ const handleFormSubmit = async event => {
             className="form-input col-12 col-md-9"
             onChange={handleChangePrice}
         ></textarea>
-        <button className="btn col-12 col-md-3" type="submit">
-          Submit
-        </button>
+        <div>
+            <button className="btn-warning btn" type="submit">
+                Submit
+            </button>
+        </div>
       </form>
     </div>
   );
 };
 
 export default MenuForm;
-

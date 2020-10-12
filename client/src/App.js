@@ -8,6 +8,7 @@ import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Signup from './pages/Signup';
 import AddRestaurant from './pages/AddResturuant'
+import menuForm from './pages/menuForm'
 //Components
 import Nav from "./components/Nav"
 import SingleRestaurant from './pages/SingleRestaurant';
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/restaurant/:id" component={SingleRestaurant} />
           <Route exact path="/AddRestaurant" component={AddRestaurant} />
+          <Route exact path="/menuForm/:id" component={menuForm} />
         </Switch>
       </Router>
     </ApolloProvider>
