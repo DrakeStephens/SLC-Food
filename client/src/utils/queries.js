@@ -6,6 +6,8 @@ export const QUERY_RESTAURANTS = gql`
       _id
       username
       restaurantName
+      address
+      phone
       url
       description
     }
@@ -19,6 +21,8 @@ export const QUERY_RESTURAUNT = gql`
       resturauntName
       url
       description
+      address
+      phone
       username
     }
   }
@@ -35,6 +39,8 @@ export const QUERY_USER = gql`
       restaurants {
         _id
         restaurantName
+        address
+        phone
         url
         description
         menuItemCount
@@ -52,6 +58,8 @@ export const QUERY_ME = gql`
       restaurants {
         _id
         restaurantName
+        address
+        phone
         url
         description
       }

@@ -20,3 +20,4 @@ const menuItemSchema = new Schema(
 );
 
 module.exports = menuItemSchema;
+
