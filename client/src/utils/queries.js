@@ -8,18 +8,32 @@ export const QUERY_RESTAURANTS = gql`
       restaurantName
       url
       description
+      menuItems {
+        _id
+        item
+        description
+        price
+        username
+      }
     }
   }
 `;
 
-export const QUERY_RESTURAUNT = gql`
-  query resturaunt($id: ID!) {
-    resturaunt(_id: $id) {
+export const QUERY_RESTAURANT = gql`
+  query restaurant($id: ID!) {
+    restaurant(_id: $id) {
       _id
-      resturauntName
+      restaurantName
       url
       description
       username
+      menuItems {
+        _id
+        item
+        description
+        price
+        username
+      }
     }
   }
 `;
@@ -38,6 +52,13 @@ export const QUERY_USER = gql`
         url
         description
         menuItemCount
+        menuItems {
+          _id
+          item
+          description
+          price
+          username
+        }
       }
     }
   }
@@ -54,6 +75,13 @@ export const QUERY_ME = gql`
         restaurantName
         url
         description
+        menuItems {
+          _id
+          item
+          description
+          price
+          username
+        }
       }
     }
   }

@@ -5,6 +5,7 @@ const RestaurantList = ({ restaurants, title }) => {
   if (!restaurants.length) {
     return <h3>No Restaurants Yet</h3>;
   }
+  
 
   return (
     <div>
@@ -27,7 +28,6 @@ const RestaurantList = ({ restaurants, title }) => {
               >{restaurant.url}
               </a>
               <h4>Restuarant Description</h4>
-              <p>{restaurant.url}</p>
               <p>{restaurant.description}</p>
 
               {/* <p className="mb-0">
