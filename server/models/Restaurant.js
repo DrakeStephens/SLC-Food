@@ -1,12 +1,12 @@
 const { Schema, model } = require('mongoose');
 const menuItemSchema = require('./MenuItem');
 
-const restaurantSchema = new Schema(
+const restaurantSchema = new Schema({
     username: {
       type: String,
       required: true
     },
-    resturauntName: {
+    restaurantName: {
       type: String,
       required: 'You need to leave a restaurant name!',
       minlength: 1,
@@ -23,7 +23,7 @@ const restaurantSchema = new Schema(
       minlength: 1,
       maxlength: 280
     },
-    savedmenuItems: [menuItemSchema],
+    menuItems: [menuItemSchema],
   }
 );
 

@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const menuItemSchema = require('./MenuItem');
-const resturauntSchema = require('./Resturaunt');
+const Restaurant = require('./Restaurant');
 
 const userSchema = new Schema({
 
@@ -22,13 +22,13 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  resturaunts: [{
+  restaurants: [{
     type: Schema.Types.ObjectId,
-    ref: 'Resturaunt'
+    ref: 'Restaurant'
   }],
 
   savedMenuItems: [menuItemSchema],
-  savedResturaunt: [resturauntSchema],
+  // savedResturaunt: [Restaurant],
 
 },
 
