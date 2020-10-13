@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 import { useParams } from 'react-router-dom';
 
 import { ADD_MENU_ITEM } from '../utils/mutations'
+import { QUERY_RESTAURANT } from '../utils/queries';
+
+import MenuList from '../components/MenuList'
 
 const MenuForm = () => {
 const { id: restaurantId } = useParams();
+
+const { loading, data } = useQuery(QUERY_RESTAURANT, {
+    variables: { id: restaurantId }
+  });
+const restaurant = data?.restaurant || {};
+
 const [item, setMenuItem] = useState('');
 const [description, setMenuDescription] = useState('');
 const [price, setMenuPrice] = useState('');
@@ -58,9 +67,9 @@ const handleFormSubmit = async event => {
   };
 
   return (
-    <div className="col-12 mb-3 col-lg-8">
+    <div>
         <form
-        className="flex-row justify-center justify-space-between-md align-stretch"
+        className="flex-row justify-center justify-space-between-md align-stretch col-12 mb-3 col-lg-8"
         onSubmit={handleFormSubmit}
         >
         <p className={`m-0 ${CcMenuItem === 280 || error ? 'text-error' : ''}`}>
@@ -99,6 +108,12 @@ const handleFormSubmit = async event => {
             </button>
         </div>
       </form>
+      <div className="card-header">
+          <h3>Our Menu</h3>
+      </div>
+          <div className="cardBody">
+          <MenuList menuItems={restaurant.menuItems} />
+          </div>
     </div>
   );
 };
