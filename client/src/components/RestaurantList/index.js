@@ -5,6 +5,7 @@ const RestaurantList = ({ restaurants, title }) => {
   if (!restaurants.length) {
     return <h3>No Restaurants Yet</h3>;
   }
+  
 
   return (
     <div>

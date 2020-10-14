@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { ADD_RESTAURANT } from '../../utils/mutations';
-import { QUERY_RESTAURANTS, QUERY_ME } from '../../utils/queries';
+import { ADD_RESTAURANT } from '../utils/mutations';
+import { QUERY_RESTAURANTS, QUERY_ME } from '../utils/queries';
 
 const RestaurantForm = () => {
   const [restaurantName, setName] = useState('');
@@ -98,7 +98,8 @@ const RestaurantForm = () => {
   };
 
   return (
-    <div>
+    <div className="flex-row justify-space-between">
+      <div className="col-12 mb-3 col-lg-8">
       <form
         className="flex-row justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
@@ -164,6 +165,7 @@ const RestaurantForm = () => {
         </button>
         </div>
       </form>
+      </div>
     </div>
   );
 };

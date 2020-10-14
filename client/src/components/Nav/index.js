@@ -19,6 +19,9 @@ function Nav() {
         <a href="/" className="btn btn-warning nav-item m-1" onClick={() => Auth.logout()}>
           Logout
         </a>
+        <Link to="/AddRestaurant">
+                <button className="btn btn-warning nav-item m-1">AddRestaurant</button>
+        </Link>
     </div>
       );
     } else {

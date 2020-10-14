@@ -39,12 +39,12 @@ export const ADD_RESTAURANT = gql`
 `;
 
 export const ADD_MENU_ITEM = gql`
-  mutation addMenuItem($thoughtId: ID!, $reactionBody: String!) {
-    addMenuItem(thoughtId: $thoughtId, reactionBody: $reactionBody) {
+  mutation addMenu($restaurantId: ID!, $item: String!, $description: String!, $price: String!) {
+    addMenu(restaurantId: $restaurantId, item: $item, description: $description, price: $price) {
       _id
-      menuItemCount
       menuItems {
         _id
+        item
         description
         price
         username

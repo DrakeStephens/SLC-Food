@@ -1,49 +1,64 @@
-# SLC-Food
+![logo](client/public/images/slc-food.png)
 
-# SLC-Food
-
-## Description 
-
-A full stack web application, focused on creating a new platform for local Salt Lake City local restaurants to recive online orders without the fees and charges of larger remote ordering analogs.
+**SLC-Food** is an ***easy-to-use***, Restaurant Finder application focused on finding local restaurants in Salt Lake City. Users are able to use the application to ***order takeout*** on the app without *fees* or *charges* that other larger remote ordering analogs do.
 
 ## Table of Contents (Optional)
 
-If your README is very long, add a table of contents to make it easy for users to find what they need.
-
+* [Built With](#built-with)
 * [Installation](#installation)
 * [Usage](#usage)
 * [Credits](#credits)
 * [License](#license)
+* [Contributing](#contributing)
 
+## Built With
+* [React](https://reactjs.org/)
+* [Bootstrap](https://getbootstrap.com)
+* [GraphQL](https://graphql.org/)
+* [Apollo](https://www.apollographql.com/docs/react/)
 
 ## Installation
 
-NPM packages, 
+To install NPM dependencies: 
+
+`npm install`
+
+To start the application:
+
+`npm start`
 
 ## Usage 
 
-to veiw the menu and (ideally) order food from local buisnesses in the greater Salt Lake area.
+to view the menu and (ideally) order food from local businesses in the greater Salt Lake area.
 
 
 ## Credits
 
 
-
-
 ## License
-
-MIT
- 
+Distributed under the [MIT](https://choosealicense.com/licenses/mit/) license. 
 
 ## Badges
-
 awesome
 
-
 ## Contributing
+Any contributions or suggestions to make our application better is always welcome. 
 
+1. Fork the Project
+2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
+3. Commit your Changes (git commit -m 'Add some AmazingFeature')
+4. Push to the Branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
 
+Please read the [contribution guidelines](contributing.md) first.
 
-## Tests
+### Contributors
+[Drake Stephens](https://github.com/DrakeStephens)
 
-umm
+[Chubbray](https://github.com/Chubbray)
+
+[MDubon1407](https://github.com/mdubon1407)
+
+[CRSPN](https://github.com/CRSPN)
+
+[Matthew McFadden](https://github.com/MatthewMcFadden)

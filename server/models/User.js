@@ -1,35 +1,42 @@
-const {
-    Schema,
-    model
-} = require('mongoose');
+const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const menuItemSchema = require('./MenuItem');
+const Restaurant = require('./Restaurant');
+
 const userSchema = new Schema({
-    username: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true,
-        match: [/.+@.+\..+/, 'Must match an email address!']
-    },
-    password: {
-        type: String,
-        required: true,
-        minlength: 5
-    },
-    restaurants: [{
-      type: Schema.Types.ObjectId,
-      ref: 'Restaurant'
-    }],
-}, {
+
+  username: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, 'Must match an email address!']
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 5
+  },
+  restaurants: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Restaurant'
+  }],
+
+  savedMenuItems: [menuItemSchema],
+  // savedResturaunt: [Restaurant],
+
+},
+
+  {
     toJSON: {
-        virtuals: true
+      virtuals: true
     }
-});
+  });
 
 // set up pre-save middleware to create password
 userSchema.pre('save', async function(next) {
@@ -45,10 +52,7 @@ userSchema.pre('save', async function(next) {
   userSchema.methods.isCorrectPassword = async function(password) {
     return bcrypt.compare(password, this.password);
   };
-  
-  userSchema.virtual('friendCount').get(function() {
-    return this.friends.length;
-  });
+
 
 
 const User = model('User', userSchema);
