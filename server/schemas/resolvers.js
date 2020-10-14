@@ -7,8 +7,8 @@ const resolvers = {
   Query: {
     users: async () => {
       return User.find()
-      .select('-_v -password')
-      .populate('restaurants');
+        .select('-_v -password')
+        .populate('restaurants');
     },
     user: async (parent, args, context) => {
       if (context.user) {
@@ -60,16 +60,16 @@ const resolvers = {
     addRestaurant: async (parent, args, context) => {
       if (context.user) {
         const restaurant = await Restaurant.create({ ...args, username: context.user.username });
-    
+
         await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $push: { restaurants: restaurant._id } },
           { new: true }
         );
-    
+
         return restaurant;
       }
-    
+
       throw new AuthenticationError('You need to be logged in!');
     },
     addMenu: async (parent, { restaurantId, item, description, price }, context) => {
@@ -79,13 +79,46 @@ const resolvers = {
           { $push: { menuItems: { item, description, price, username: context.user.username } } },
           { new: true, runValidators: true }
         );
-    
+
         return updatedRestaurant;
       }
-    
+
       throw new AuthenticationError('You need to be logged in!');
     },
+    editRestaurant: async (parent, { restaurantName, description }, context) => {
+      if (context.restaurant) {
+        const editRestaurant = await Restaurant.findByIdAndUpdate(
+          { _id: restaurantId },
+          { $push: { Restaurant: { restaurantName, description, username: context.user.username } } },
+          { new: true, runValidators: true },
+        );
 
+        return editRestaurant;
+      }
+    },
+    editMenu: async (parent, { restaurantId, item, description, price }, context) => {
+      if (context.menu) {
+        const editMenu = await Menu.findOneAndUpdate(
+          { _id: restaurantId },
+          { $push: { menuItems: { item, description, price, username: context.user.username } } },
+          { new: true, runValidators: true }
+        );
+
+        return editMenu;
+      }
+    },
+    deleteRestaurant: async (parent, { restaurantName, description }, context) => {
+      const user = await User.findByIdAndDelete({ ...args, username: context.user.username });
+      if (!updatedUser) {
+        throw new AuthenticationError('Could not find user with this ID!')
+      }
+    },
+    deleteMenu: async (parent, { restaurantId, item, description, price }, context) => {
+      const user = await User.findByIdAndDelete({ restaurantId, item, description, price });
+      if (!updatedUser) {
+        throw new AuthenticationError('Could not find user with this ID!')
+      }
+    },
   }
 };
 
