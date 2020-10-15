@@ -1,7 +1,9 @@
-
-var CACHE_NAME = 'pwa-slc-food';
+var CACHE_NAME = 'pwa-task-manager';
 var urlsToCache = [
-    '/'
+  '/',
+  '/login',
+  '/signup',
+  '/AddRestaurant'
 ];
 
 // Install a service worker
@@ -33,7 +35,7 @@ self.addEventListener('fetch', event => {
 
 // Update a service worker
 self.addEventListener('activate', event => {
-  var cacheWhitelist = ['pwa-slc-food'];
+  var cacheWhitelist = ['pwa-task-manager'];
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(

@@ -30,8 +30,6 @@ export const ADD_RESTAURANT = gql`
         _id
         username
         restaurantName
-        address
-        phone
         url
         description
     }
