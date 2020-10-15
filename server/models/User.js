@@ -2,7 +2,6 @@ const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const menuItemSchema = require('./MenuItem');
-const Restaurant = require('./Restaurant');
 
 const userSchema = new Schema({
 
