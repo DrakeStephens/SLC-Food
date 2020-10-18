@@ -1,6 +1,6 @@
-![logo](client/public/images/slc-food.png)
+![logo](client/public/images/slc-food.png) ![demo](client/public/images/SLC-FOOD.jpg)
 
-**SLC-Food** is an ***easy-to-use***, Restaurant Finder application focused on finding local restaurants in Salt Lake City. Users are able to use the application to ***order takeout*** on the app without *fees* or *charges* that other larger remote ordering analogs do.
+**SLC-Food** is an ***easy-to-use***, Restaurant Finder application focused on finding local restaurants in Salt Lake City. Users are able to use the application to ***order takeout*** on the app without *fees* or *charges* that other larger remote ordering analogs require.
 
 ## Table of Contents (Optional)
 
@@ -16,6 +16,7 @@
 * [Bootstrap](https://getbootstrap.com)
 * [GraphQL](https://graphql.org/)
 * [Apollo](https://www.apollographql.com/docs/react/)
+* [Cloudinary](https://cloudinary.com/)
 
 ## Installation
 
