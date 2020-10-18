@@ -12,7 +12,7 @@ const typeDefs = gql`
     
     type Restaurant {
       _id: ID
-      restaurantName : String
+      restaurantName: String
       description: String
       url: String
       username: String
@@ -31,12 +31,12 @@ const typeDefs = gql`
         me: User
         users: [User]
         user(username: String!): User
-        restaurants(username: String): [Restaurant]
+        restaurants(username: String!): [Restaurant]
         restaurant(_id: ID!): Restaurant
     }
 
     type Auth {
-        token: ID!
+        token: ID
         user: User
     }
 
@@ -45,6 +45,10 @@ const typeDefs = gql`
         addUser(username: String!, email: String!, password: String!): Auth
         addRestaurant(restaurantName: String!, description: String!, url: String!): Restaurant
         addMenu(restaurantId: ID!, item: String!, description: String!, price: String!): Restaurant
+        editRestaurant(restaurantId: ID!, description: String!): Restaurant
+        editMenu(restaurantId: ID!, item: String!, description: String!, price: String!): MenuItem
+        deleteRestaurant(restaurantName: String!, description: String!, url: String!): Restaurant
+        deleteMenu(restaurantId: ID!, item: String!, description: String!, price: String!): MenuItem
       }
 
 `;

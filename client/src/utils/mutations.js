@@ -50,3 +50,56 @@ export const ADD_MENU_ITEM = gql`
     }
   }
 `;
+
+export const EDIT_RESTAURANT = gql`
+  mutation editRestaurant($restaurantId: ID!, $description: String!) {
+    editRestaurant(restaurantId: $restaurantId, description: $description) {
+      restaurant {
+        _id
+        restaurantName
+        description
+      }
+    }
+  }
+`;
+
+export const EDIT_MENU = gql`
+  mutation editMenu($restaurantId: ID!, $item: String!, $description: String!, $price: String!) {
+    editMenu(restaurantId: $restaurantId, item: $item, description: $description, price: $price) {
+      menuItem {
+        _id
+        item
+        description
+        price
+        username
+      }
+    }
+  }
+`;
+
+export const DELETE_RESTAURANT = gql`
+  mutation deleteRestaurant($restaurantName: String!, $description: String!, $url: String!) {
+    deleteRestaurant(restaurantName: $restaurantName, description: $description, url: $url) {
+      restaurant {
+        _id
+        restaurantName
+        description
+        url
+      }
+    }
+  }
+`;
+
+export const DELETE_MENU = gql`
+  mutation deleteMenu($restaurantId: ID!, $item: String!, $description: String!, $price: String!) {
+    deleteMenu(restaurantId: $restaurantId, item: $item, description: $description, price: $price) {
+      menuItem {
+        _id
+        item
+        description
+        price
+        username
+      }
+    }
+  }
+`;
